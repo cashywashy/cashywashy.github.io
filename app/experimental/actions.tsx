@@ -1,12 +1,8 @@
 import 'server-only';
-import * as fs from 'fs'
-
-export async function setData(file:string, value: any) {
-  fs.writeFileSync(file,value);
-}
+import { setData } from '../memory_storage';
 
 export async function data_store(formData:FormData) {
     'use server'
     let bro_said = formData.get('bro_said');
-    setData('persistent_storage/goobers.txt', bro_said);
+    setData('bro_said', bro_said);
 }

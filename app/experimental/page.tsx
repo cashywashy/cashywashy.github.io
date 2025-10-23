@@ -1,21 +1,16 @@
 import 'server-only';
 import type { Metadata } from "next";
 import { data_store } from './actions';
-import * as fs from 'fs';
+import { getData } from '../memory_storage';
 
 export const metadata: Metadata = {
   title: "Experimental Hub",
   description: "There can be no breakthroughs without the meddling with nature. Thus is experimentation.",
 };
 
-export async function getData() {
-  'use server'
-  const words = fs.readFileSync('persistent_storage/goobers.txt', 'utf-8');
-  return words;
-}
-
 export default async function Page() {
-  const words = getData()
+  let words = getData('bro_said');
+  if (words == null) words = "I'm a goofy goober";
   return (
     <div>
       <p>{words}</p>
