@@ -11,7 +11,7 @@ export default function Home() {
           May thine eyes bless you with that which thy desires doth seek:
       </p>
       <ul>
-        <li><Link href="/experimental/projecthub">Experimental Project</Link></li>
+        <li><Link href="/experimental">Experimental Project</Link></li>
       </ul>
     </div>
   );
