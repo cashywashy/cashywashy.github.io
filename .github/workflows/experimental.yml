@@ -15,6 +15,5 @@ jobs:
       - name: List files in the repository and check the working directory
         run: |
           ls ${{ github.workspace }}
-        run: |
-          pwd
+          
       - run: echo "🍏 This job's status is ${{ job.status }}."
