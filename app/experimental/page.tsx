@@ -1,7 +1,5 @@
-import 'server-only';
 import type { Metadata } from "next";
 import { data_store } from './actions';
-import { getData } from '../memory_storage';
 
 export const metadata: Metadata = {
   title: "Experimental Hub",
@@ -9,8 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  let words = await getData('bro_said');
-  if (words == null) words = "I'm a goofy goober";
+  let words = "I'm a goofy goober";
   return (
     <div>
       <p>{words}</p>
