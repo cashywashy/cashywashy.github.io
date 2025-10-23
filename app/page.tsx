@@ -1,10 +1,8 @@
 import Link from 'next/link'
 
-
-
 export default function Home() {
   return (
-    <div>
+    <div className="rootpage">
       <h1>Greetings, Honoured Guests</h1>
       <p>
         Good day, dear guests; and welcome to mine <b><i>humble abode</i></b>. <br></br>
