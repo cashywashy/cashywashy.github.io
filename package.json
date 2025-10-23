@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "node": "^22.21.0"
+  },
+  "scripts": {
+    "test": "node main.js"
   }
 }
