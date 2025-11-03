@@ -9,11 +9,9 @@ function playVivaldi() {
 
 export default function Home() {
   const refer = useRef(null);
-
-  useEffect(() => {window.addEventListener("pageshow", playVivaldi)}, []);
+  useEffect(() => {window.addEventListener("popstate", playVivaldi)}, []);
   
   
-
   return (
     <div className="rootpage">
       <div>
