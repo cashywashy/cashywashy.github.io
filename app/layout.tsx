@@ -5,7 +5,7 @@ import "./home.css";
 export const metadata: Metadata = {
   title: "Humble Abode",
   description: "Welcome, distant travellers",
-  
+  icons: "/favicon.ico"
 };
 
 export default function RootLayout({

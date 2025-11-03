@@ -10,8 +10,18 @@
         max-height: fit-content;
 }
 
+.rootpage a {
+  color: rgb(255, 200, 133);
+}
+.rootpage a:hover {
+  color: rgb(224, 175, 116);
+}
+
 .rootpage a:visited{
-  color: aliceblue;
+  color: rgb(255, 147, 133);
+}
+.rootpage a:visited:hover{
+  color: rgb(213, 122, 110);
 }
 
 .overlay {

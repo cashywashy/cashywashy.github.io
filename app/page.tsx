@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -7,16 +7,18 @@ export default function Home() {
         <h1 style={{margin: 0, padding:8}}>Greetings, Honoured Guests</h1>
         <p>
           Good day, dear guests; and welcome to mine <b><i>humble abode</i></b>. <br></br>
-            May thine eyes bless you with that which thy desires doth seek:
+            May thine eyes bless you with that which thy mayeth doth seek:
         </p>
         <ul>
-          <li><Link href="/experimental">Experimental Project</Link></li>
+          <li><Link href="https://github.com/cashywashy">Public Projects</Link></li>
+          <li><Link href="playlist">My Favourite Playlist :)</Link></li>
         </ul>
       </div>
-      <div className='overlay' style={{bottom: 0}}>
+
+      <div className="overlay" style={{bottom: 0}}>
         <h3>Can't handle the music?</h3>
-        <audio src={'/vivaldiFall.webm'} autoPlay loop controls>
-          could not load audio
+        <audio src={"/vivaldiFall.webm"} autoPlay loop controls>
+          could not load audio :(
         </audio>
       </div>
       
