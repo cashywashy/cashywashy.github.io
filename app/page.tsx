@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link"
-import { useEffect } from "react";
 
-function playVivaldi() {
+function playVivaldi(event:any) {
   let vivaldiplayer = document.getElementById("vivaldiplayer") as HTMLAudioElement;
   if (vivaldiplayer) vivaldiplayer.play();
 }
 export default function Home() {
-  useEffect(playVivaldi)
+  window.addEventListener("pageshow", playVivaldi);
+  
   return (
     <div className="rootpage">
       <div>
