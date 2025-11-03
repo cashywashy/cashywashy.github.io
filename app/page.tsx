@@ -55,7 +55,7 @@ export default function Home() {
       <div className="overlay" style={{bottom: 0}}>
         <h3>Can't handle the music?</h3>
         <button id="vivaldiButton">Pause</button>
-        <iframe src="/vivaldiPlayer.html" allow="autoplay;loop" style={{display: "none"}} id="vivaldiAudio"/>.
+        <iframe src="/vivaldiPlayer.html" allow="autoplay" style={{display: "none"}} id="vivaldiAudio"/>.
       </div>
     </div>
   );
