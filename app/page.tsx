@@ -1,6 +1,12 @@
+"use client"
 import Link from "next/link"
 
+function playVivaldi() {
+  let vivaldiplayer = document.getElementById("vivaldiplayer");
+  vivaldiplayer.play();
+}
 export default function Home() {
+  
   return (
     <div className="rootpage">
       <div>
@@ -17,9 +23,7 @@ export default function Home() {
 
       <div className="overlay" style={{bottom: 0}}>
         <h3>Can't handle the music?</h3>
-        <audio src={"/vivaldiFall.webm"} autoPlay loop controls>
-          could not load audio :(
-        </audio>
+        <audio id="vivaldiplayer" src={"/vivaldiFall.webm"} onLoad={playVivaldi()} loop controls>could not load audio :(</audio>
       </div>
       
     </div>
