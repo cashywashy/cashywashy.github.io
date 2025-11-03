@@ -1,4 +1,3 @@
-// import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "./home.css";
 
@@ -6,6 +5,7 @@ import "./home.css";
 export const metadata: Metadata = {
   title: "Humble Abode",
   description: "Welcome, distant travellers",
+  
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body style={{margin: 0}}>
         {children}
       </body>
     </html>
