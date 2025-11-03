@@ -34,6 +34,11 @@ export default function Home() {
   useEffect(()=>{
     let vivaldiButton = document.getElementById("vivaldiButton");
     if (vivaldiButton) {
+      let vivaldiFrame = document.getElementById("vivaldiAudio") as HTMLIFrameElement;
+      if (vivaldiFrame){
+        let playPauseElement = vivaldiFrame.contentDocument?.getElementById("media") as HTMLAudioElement;
+        if (playPauseElement) playPauseElement.play();
+      }
       vivaldiButton.addEventListener("click",buttonListener);
     }
   },[]);
