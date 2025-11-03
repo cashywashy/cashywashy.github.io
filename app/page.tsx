@@ -1,12 +1,13 @@
 "use client"
 import Link from "next/link"
+import { useEffect } from "react";
 
 function playVivaldi() {
   let vivaldiplayer = document.getElementById("vivaldiplayer") as HTMLAudioElement;
   if (vivaldiplayer) vivaldiplayer.play();
 }
 export default function Home() {
-  
+  useEffect(playVivaldi)
   return (
     <div className="rootpage">
       <div>
@@ -23,7 +24,7 @@ export default function Home() {
 
       <div className="overlay" style={{bottom: 0}}>
         <h3>Can't handle the music?</h3>
-        <audio id="vivaldiplayer" src={"/vivaldiFall.webm"} onLoad={()=>playVivaldi()} loop controls>could not load audio :(</audio>
+        <audio id="vivaldiplayer" src={"/vivaldiFall.webm"} loop controls>could not load audio :(</audio>
       </div>
       
     </div>
