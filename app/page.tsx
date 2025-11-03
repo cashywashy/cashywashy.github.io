@@ -1,16 +1,42 @@
 "use client"
 import Link from "next/link"
-import { useEffect, useRef } from "react";
+import { MouseEvent, useEffect, useRef } from "react";
 
-function playVivaldi() {
-  let vivaldiplayer = document.getElementById("vivaldiplayer") as HTMLAudioElement;
-  if (vivaldiplayer) vivaldiplayer.play();
-}
+// function playVivaldi() {
+//   let vivaldiplayer = document.getElementById("vivaldiplayer") as HTMLAudioElement;
+//   if (vivaldiplayer) vivaldiplayer.play();
+// }
 
 export default function Home() {
   const refer = useRef(null);
-  useEffect(() => {window.addEventListener("focus", playVivaldi)}, []);
-  
+
+  const buttonListener = (e : any) => {
+    let vivaldiFrame = document.getElementById("vivaldiAudio") as HTMLIFrameElement;
+    let ctxButton = e.target as HTMLButtonElement;
+    if (vivaldiFrame) {
+      let playPauseElement = vivaldiFrame.contentDocument?.getElementById("media") as HTMLAudioElement;
+      if (ctxButton.textContent == "Pause") {
+        playPauseElement.pause();
+        ctxButton.textContent = "Play";
+      }
+      else if (ctxButton.textContent == "Play") {
+        playPauseElement.play();
+        ctxButton.textContent = "Pause";
+      }
+      else {
+        vivaldiFrame.remove();
+        ctxButton.textContent = "you renamed this button >:( no more Vivaldi for you";
+        ctxButton.removeEventListener("click", e);
+      }
+    }
+  };
+
+  useEffect(()=>{
+    let vivaldiButton = document.getElementById("vivaldiButton");
+    if (vivaldiButton) {
+      vivaldiButton.addEventListener("click",buttonListener);
+    }
+  },[]);
   
   return (
     <div className="rootpage">
@@ -28,9 +54,9 @@ export default function Home() {
 
       <div className="overlay" style={{bottom: 0}}>
         <h3>Can't handle the music?</h3>
-        <audio id="vivaldiplayer" src={"/vivaldiFall.webm"} loop controls>could not load audio :(</audio>
+        <button id="vivaldiButton">Pause</button>
+        <iframe src="/vivaldiPlayer.html" allow="autoplay;loop" style={{display: "none"}} id="vivaldiAudio"/>.
       </div>
-      
     </div>
   );
 }
