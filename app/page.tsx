@@ -3,7 +3,7 @@ import Link from "next/link"
 
 function playVivaldi() {
   let vivaldiplayer = document.getElementById("vivaldiplayer");
-  vivaldiplayer.play();
+  if (vivaldiplayer) vivaldiplayer.play();
 }
 export default function Home() {
   
