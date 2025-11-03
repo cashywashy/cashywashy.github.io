@@ -9,7 +9,7 @@ function playVivaldi() {
 
 export default function Home() {
   const refer = useRef(null);
-  useEffect(() => {window.addEventListener("popstate", playVivaldi)}, []);
+  useEffect(() => {window.addEventListener("focus", playVivaldi)}, []);
   
   
   return (
