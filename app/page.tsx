@@ -56,7 +56,7 @@ export default function Home() {
 
       <div className="overlay" style={{bottom: 0}}>
         <h3>You must start the background music yourself because Google Chrome is a meanie poopoo head {'>'}:{'('}</h3>
-        <button id="vivaldiButton">Pause</button>
+        <button id="vivaldiButton">Play</button>
         <audio src="/vivaldiFall.webm" autoPlay loop style={{display:"none"}} id="vivaldiAudio"/>
 
       </div>
