@@ -11,20 +11,19 @@ export default function Home() {
   const refer = useRef(null);
 
   const buttonListener = (e : any) => {
-    let vivaldiFrame = document.getElementById("vivaldiAudio") as HTMLIFrameElement;
+    let vivaldiElement = document.getElementById("vivaldiAudio") as HTMLAudioElement;
     let ctxButton = e.target as HTMLButtonElement;
-    if (vivaldiFrame) {
-      let playPauseElement = vivaldiFrame.contentDocument?.getElementById("media") as HTMLAudioElement;
+    if (vivaldiElement) {
       if (ctxButton.textContent == "Pause") {
-        playPauseElement.pause();
+        vivaldiElement.pause();
         ctxButton.textContent = "Play";
       }
       else if (ctxButton.textContent == "Play") {
-        playPauseElement.play();
+        vivaldiElement.play();
         ctxButton.textContent = "Pause";
       }
       else {
-        vivaldiFrame.remove();
+        vivaldiElement.remove();
         ctxButton.textContent = "you renamed this button >:( no more Vivaldi for you";
         ctxButton.removeEventListener("click", e);
       }
@@ -58,7 +57,6 @@ export default function Home() {
         <h3>You must start the background music yourself because Google Chrome is a meanie poopoo head {'>'}:{'('}</h3>
         <button id="vivaldiButton">Play</button>
         <audio src="/vivaldiFall.webm" autoPlay loop style={{display:"none"}} id="vivaldiAudio"/>
-
       </div>
     </div>
   );
