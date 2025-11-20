@@ -34,11 +34,8 @@ export default function Home() {
   useEffect(()=>{
     let vivaldiButton = document.getElementById("vivaldiButton");
     if (vivaldiButton) {
-      let vivaldiFrame = document.getElementById("vivaldiAudio") as HTMLIFrameElement;
-      if (vivaldiFrame){
-        let playPauseElement = vivaldiFrame.contentDocument?.getElementById("media") as HTMLAudioElement;
-        if (playPauseElement) playPauseElement.play();
-      }
+      let vivaldiElement = document.getElementById("vivaldiAudio") as HTMLAudioElement;
+      if (vivaldiElement) vivaldiElement.play();
       vivaldiButton.addEventListener("click",buttonListener);
     }
   },[]);
@@ -58,9 +55,10 @@ export default function Home() {
       </div>
 
       <div className="overlay" style={{bottom: 0}}>
-        <h3>Can't handle the music?</h3>
+        <h3>You must start the background music yourself because Google Chrome is a meanie poopoo head {'>'}:{'('}</h3>
         <button id="vivaldiButton">Pause</button>
-        <iframe src="/vivaldiPlayer.html" allow="autoplay" style={{display: "none"}} id="vivaldiAudio"/>.
+        <audio src="/vivaldiFall.webm" autoPlay loop style={{display:"none"}} id="vivaldiAudio"/>
+
       </div>
     </div>
   );
