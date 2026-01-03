@@ -52,8 +52,8 @@ function MusicListItem(props:{musicName : String}) {
 }
 
 export default async function Home() {
-  let id = process.env.DATABASE_ID;
-  let key = process.env.DATABASE_KEY;
+  let id = process.env.secrets.DATABASE_ID;
+  let key = process.env.secrets.DATABASE_KEY;
   let client = createClient<Database>(id, key);
 
   let {data,status} = await client.from('favourite_music').select();
