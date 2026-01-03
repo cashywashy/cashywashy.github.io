@@ -52,9 +52,10 @@ function MusicListItem(props:{musicName : String}) {
 }
 
 export default async function Home() {
-  let id = process.env.secrets.DATABASE_ID;
-  let key = process.env.secrets.DATABASE_KEY;
-  let client = createClient<Database>(id, key);
+  let client = createClient<Database>(
+    process.env.DATABASE_ID!,
+    process.env.DATABASE_KEY!
+  );
 
   let {data,status} = await client.from('favourite_music').select();
 
@@ -66,7 +67,7 @@ export default async function Home() {
       <div>
         <h1>My Favourite Music! :{')'}</h1>
         <ul>
-          {data.map((item)=>(<li>{item['title']} <br/> <iframe src={'https://www.youtube.com/embed/'+item['music']} >if the video doesn't show then something is wrong</iframe></li>))}
+          {data.map((item:{[index:string]:any},key)=>(<li>{item['title']} <br/> <iframe src={'https://www.youtube.com/embed/'+item['music']} >if the video doesn't show then something is wrong</iframe></li>))}
         </ul>
       </div>
     );
