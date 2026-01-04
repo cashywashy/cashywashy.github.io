@@ -64,7 +64,7 @@ export default async function Home() {
       <div>
         <h1>My Favourite Music! :{')'}</h1>
         <ul>
-          {data.map((item:{[index:string]:any},key)=>(<li>{item['title']} <br/> <iframe src={'https://www.youtube.com/embed/'+item['music']} >if the video doesn't show then something is wrong</iframe></li>))}
+          {data.map((item:{[index:string]:any},key:number)=>(<li>{item['title']} <br/> <iframe src={'https://www.youtube.com/embed/'+item['music']} >if the video doesn't show then something is wrong</iframe></li>))}
         </ul>
       </div>
     );
