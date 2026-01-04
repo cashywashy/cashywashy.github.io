@@ -93,4 +93,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        env:
+          DATABASE_ID: ${{secrets.DATABASE_ID}}
+          DATABASE_KEY: ${{secrets.DATABASE_KEY}}
         uses: actions/deploy-pages@v4
