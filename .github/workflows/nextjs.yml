@@ -74,6 +74,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        env:
+          DATABASE_ID: ${{secrets.DATABASE_ID}}
+          DATABASE_KEY: ${{secrets.DATABASE_KEY}}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -90,4 +93,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        env:
+          DATABASE_ID: ${{secrets.DATABASE_ID}}
+          DATABASE_KEY: ${{secrets.DATABASE_KEY}}
         uses: actions/deploy-pages@v4
