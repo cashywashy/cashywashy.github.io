@@ -57,10 +57,7 @@ export default async function Home() {
     process.env.DATABASE_KEY!
   );
 
-  let {data,status} = await client.from('favourite_music').select();
-
-  if (status == 200) console.log(data);
-  else console.log("a problem occurred");
+  let {data, status} = await client.from('favourite_music').select();
 
   if (data){
     return (
@@ -71,5 +68,8 @@ export default async function Home() {
         </ul>
       </div>
     );
+  }
+  else {
+    return (<div><h1>Music Not Found</h1><p>Supabase responded to our query with status {status}</p></div>)
   }
 }
