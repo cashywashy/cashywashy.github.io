@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { LiHTMLAttributes } from "react";
 
 type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
 interface Database {
@@ -43,14 +42,6 @@ interface Database {
   }
 }
 
-function MusicListItem(props:{musicName : String}) {
-  return (
-    <div>
-      <p>{props.musicName}</p>
-    </div>
-  )
-}
-
 export default async function Home() {
   let client = createClient<Database>(
     process.env.DATABASE_ID!,
@@ -59,7 +50,7 @@ export default async function Home() {
 
   let {data, status} = await client.from('favourite_music').select();
 
-  if (data){
+  if (data) {
     return (
       <div>
         <h1>My Favourite Music! :{')'}</h1>
